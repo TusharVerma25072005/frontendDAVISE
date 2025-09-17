@@ -5,3 +5,4 @@ the messages are stored in local storage of browser and distinct of user
 on reload all messages are refreshed .
 
 the delete chat was left to be implemented.
+technologies used are - NEXT JS , TAILWINDCSS , Storage in Local Storage
