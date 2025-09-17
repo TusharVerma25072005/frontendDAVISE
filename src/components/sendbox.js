@@ -11,7 +11,7 @@ export const SendBox = ({ messageList, setMessageList }) => {
         }
         const newList = [...messageList, newMessage]
         setMessageList(newList)
-        window.localStorage.setItem('chatHistory' , newList)
+        window.localStorage.setItem('chatHistory' , JSON.stringify(newList))
 
     }
     const [msg , setMsg] = useState("");

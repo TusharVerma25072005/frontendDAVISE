@@ -4,66 +4,66 @@ import { Topbar } from "@/components/topbar";
 import { SendBox } from "@/components/sendbox";
 import { SideNav } from "@/components/sidenav";
 import { AllMessageBox } from "@/components/chats";
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 
 
 //dummy chat list
 const List = [
   {
-    id:1,
-    type:"bot",
-    message:"Hello"
-  },{
-    id:2,
-    type:"user",
-    message:"Hello bot"
-  },{
-    id:3,
-    type:"bot",
-    message:"Hello"
-  },{
-    id:4,
-    type:"user",
-    message:"Hello bot"
-  },{
-    id:5,
-    type:"bot",
-    message:"Hello"
+    id: 1,
+    type: "bot",
+    message: "Hello"
+  }, {
+    id: 2,
+    type: "user",
+    message: "Hello bot"
+  }, {
+    id: 3,
+    type: "bot",
+    message: "Hello"
+  }, {
+    id: 4,
+    type: "user",
+    message: "Hello bot"
+  }, {
+    id: 5,
+    type: "bot",
+    message: "Hello"
   },
   {
-    id:6,
-    type:"user",
-    message:"Hello bott"
-  },{
-    id:7,
-    type:"bot",
-    message:"Hello"
-  },{
-    id:8,
-    type:"user",
-    message:"Hello last"
+    id: 6,
+    type: "user",
+    message: "Hello bott"
+  }, {
+    id: 7,
+    type: "bot",
+    message: "Hello"
+  }, {
+    id: 8,
+    type: "user",
+    message: "Hello last"
   },
 
 ]
 
-function dummy(){
-  window.localStorage.setItem('chatHistory' , JSON.stringify(List))
+function dummy() {
+  window.localStorage.setItem('chatHistory', JSON.stringify(List))
 }
 
 export default function Home() {
-  
-  const [messageList , setMessageList] = useState([])
 
-  useEffect(()=>{
-    dummy()
-    const lst = JSON.parse(window.localStorage.getItem('chatHistory'))
-    console.log(lst)
-    setMessageList(lst)
-    return 
-  }, [])
+  const [messageList, setMessageList] = useState([])
+
+  useEffect(() => {
+    // dummy()
+    const stored = window.localStorage.getItem("chatHistory");
+    const lst = stored ? JSON.parse(stored) : [];
+    console.log(lst);
+    setMessageList(lst);
+  }, []);
 
 
-  
+
 
   return (
     <main className="grid grid-cols-4 min-h-screen">
@@ -72,12 +72,12 @@ export default function Home() {
       </div>
       <div className="col-span-3 relative h-screen ">
         <Topbar />
-        {messageList ? 
-        <AllMessageBox messageList={messageList} />
-        :
-        <div>loading...</div>
+        {messageList ?
+          <AllMessageBox messageList={messageList} />
+          :
+          <div>loading...</div>
         }
-        <SendBox messageList={messageList} setMessageList={setMessageList}/>
+        <SendBox messageList={messageList} setMessageList={setMessageList} />
       </div>
     </main>
   );
