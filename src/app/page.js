@@ -70,7 +70,7 @@ export default function Home() {
       <div className="col-span-1 ">
         <SideNav />
       </div>
-      <div className="col-span-3 relative h-screen">
+      <div className="col-span-3 relative h-screen ">
         <Topbar />
         {messageList ? 
         <AllMessageBox messageList={messageList} />

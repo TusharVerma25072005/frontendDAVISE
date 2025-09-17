@@ -16,8 +16,8 @@ export const SendBox = ({ messageList, setMessageList }) => {
     }
     const [msg , setMsg] = useState("");
     return <div className="w-full absolute bottom-0 flex justify-center py-4 ">
-        <div className="w-3/4 rounded-full  p-3  flex ">
-            <input type="text" placeholder="Ask anything ..." className=" w-full outline-none px-3" onChange={(e)=>{setMsg(e.target.value)}}></input>
+        <div className="w-3/4 rounded-full  p-3  flex  bg-gray-100">
+            <input type="text" placeholder="Ask anything ... " className=" w-full outline-none px-3" onChange={(e)=>{setMsg(e.target.value)}}></input>
             <button className="outline-none hover:bg-gray-200 p-3 rounded-full" onClick={()=>{
                 console.log(msg)
                 addMessage(msg)
