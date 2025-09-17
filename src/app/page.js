@@ -7,7 +7,7 @@ import { AllMessageBox } from "@/components/chats";
 import { useState , useEffect} from "react";
 
 
-
+//dummy chat list
 const List = [
   {
     id:1,
@@ -55,7 +55,7 @@ export default function Home() {
   const [messageList , setMessageList] = useState([])
 
   useEffect(()=>{
-    // dummy()
+    dummy()
     const lst = JSON.parse(window.localStorage.getItem('chatHistory'))
     console.log(lst)
     setMessageList(lst)
@@ -67,10 +67,10 @@ export default function Home() {
 
   return (
     <main className="grid grid-cols-4 min-h-screen">
-      <div className="col-span-1 bg-green-200">
+      <div className="col-span-1 ">
         <SideNav />
       </div>
-      <div className="col-span-3 bg-blue-200  relative h-screen">
+      <div className="col-span-3 relative h-screen">
         <Topbar />
         {messageList ? 
         <AllMessageBox messageList={messageList} />
